@@ -22,3 +22,7 @@
     align-self: center;
     width: 100%;
 }
+
+.home .half{
+    width: 50%;
+}

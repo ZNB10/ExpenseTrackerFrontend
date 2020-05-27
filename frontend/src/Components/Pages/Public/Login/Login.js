@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import Butttons from '../../../Btns/Buttons'
-import Button from '../../../Btns/Buttons';
-import Campo from '../../../Campo/Campo';
+import Button from '../../../Common/Btns/Buttons';
+import Campo from '../../../Common/Campo/Campo';
 
 export default class Login extends Component{
     constructor(){
@@ -25,9 +24,9 @@ export default class Login extends Component{
         return (
             <section>
                 <h1>User Login</h1>
-                <section>
+                <section className="main fix640">
                     <Campo 
-                        caption="Email "
+                        caption="Email"
                         value={this.state.email}
                         name="email"
                         onChange={this.onChangeHandler}
@@ -39,11 +38,17 @@ export default class Login extends Component{
                         name="password"
                         onChange={this.onChangeHandler}
                    />
-                    <section>
-                        <Button caption="Login" onClick={this.onSigninBtnClick}>Login</Button>
-                        <Button >Signin</Button>
+                    <section className="action">
+                        <Button 
+                            caption="Login" 
+                            onClick={this.onSigninBtnClick} 
+                            customClass="primary"
+                        />
+                        <Button 
+                            caption="Signin" 
+                            customClass="link"
+                        />
                     </section>
-                    
                 </section>
             </section>
         );

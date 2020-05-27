@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Button from  '../../../Btns/Buttons';
+import Button from  '../../../Common/Btns/Buttons';
 import './Home.css';
 
 export default class Home extends Component {

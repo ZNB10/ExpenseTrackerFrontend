@@ -5,10 +5,10 @@ export default class Button extends Component {
     render() {
         return (
             <button 
-                className={["btn", this.props.customClass||""].join("")}
-                onClick={this.props.onClick}
+                className={["btn", this.props.customClass||""].join(" ")}
+                onClick={this.props.onClick || function(){}}
             >
-                {this.props.caption||"boton"}
+                {this.props.caption || "Botón"}
             </button>
         );
     }

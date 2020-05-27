@@ -10,6 +10,9 @@ export default class Dashboard extends Component{
         return(
             <section>
                 <h1>One Big Thing Dashbord</h1>
+                <section className="main cardHolder fix640">
+                <div>1</div>
+                </section>
             </section>
 
         );

@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import Button from  '../../../Btns/Buttons';
+import './Home.css';
 
 export default class Home extends Component {
     render(){
         return(
-        <div>
+        <div className="home"> 
             <h1>Home Page</h1>
-            <button/>
+            <Button />
+            <div>&nbsp;</div>
         </div>
         );
     }

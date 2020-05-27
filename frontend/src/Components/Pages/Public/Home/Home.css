@@ -1,0 +1,13 @@
+.home{
+    
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    color: #72c02c;
+    padding: 1em;
+    margin: 0px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+
+}

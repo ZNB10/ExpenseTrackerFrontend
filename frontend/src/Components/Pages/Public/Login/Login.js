@@ -12,10 +12,14 @@ export default class Login extends Component{
         };
         //autobinding
         this.onChangeHandler = this.onChangeHandler.bind(this);
+        this.onSigninBtnClick = this.onSigninBtnClick.bind(this);
     }
     onChangeHandler(e){
         const{name, value} = e.target;
-        console.log({name, value});
+        this.setState({...this.state, [name]:value}); 
+    }
+    onSigninBtnClick(e){
+        console.log(this.state);
     }
     render(){
         return (
@@ -26,16 +30,18 @@ export default class Login extends Component{
                         caption="Correo Electronico "
                         value={this.state.email}
                         name="email"
+                        onChange={this.onChangeHandler}
                     />
                    <Campo
                         caption="Contraseña"
                         type="password"
                         value={this.state.password}
                         name="password"
+                        onChange={this.onChangeHandler}
                    />
                     <section>
-                        <Button>Login</Button>
-                        <Button>Signin</Button>
+                        <Button caption="Login" onClick={this.onSigninBtnClick}>Login</Button>
+                        <Button >Signin</Button>
                     </section>
                     
                 </section>

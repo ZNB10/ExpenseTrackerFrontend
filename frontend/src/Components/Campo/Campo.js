@@ -1,4 +1,5 @@
 import React from 'react';
+import './Campo.css';
 
 export default ( {caption, type, value, name, onChange, ...props})=>{
     return(

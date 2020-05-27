@@ -1,7 +1,28 @@
 .btn{
     background-color: #72c02c;
     color: #fff;
-    padding: 0.5em 1em;
+    padding: 1em 1em;
     border: 1px solid #DDD;
     border-radius: 0.75em;
+    box-sizing: border-box;
+    display: flex;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    justify-content: center;
+
+
+}
+
+.primary{
+    background-color: #3e549c;
+    color: #fff;
+
+}
+
+.link{
+    background-color: inherit;
+    color: #3e549c;
+    border: none;
+    text-decoration: underline;
 }

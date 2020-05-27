@@ -12,10 +12,18 @@ export default class Dashboard extends Component{
             <section>
                 <h1>One Big Thing Dashbord</h1>
                 <section className="main cardHolder fix640">
-                <ThingBox thingType="big">1</ThingBox>
-                <div className="dataPanel"><span>&lt;--</span><span>2020-05-27</span><span>--&gt;</span></div>
-                <div className="card">2</div>
-                <div className="card">3</div>
+                <ThingBox thingType="big">
+                    <div>
+                        <h1>One</h1>
+                    </div>
+                </ThingBox>
+                <DatePanel/>
+                <ThingBox>
+                    Two
+                </ThingBox>
+                <ThingBox >
+                    Three
+                </ThingBox>
                 </section>
             </section>
 

@@ -15,14 +15,14 @@
 }
 
 .primary{
-    background-color: #3e549c;
+    background-color: whitesmoke;
     color: #fff;
 
 }
 
 .link{
     background-color: inherit;
-    color: #3e549c;
+    color: whitesmoke;
     border: none;
     text-decoration: underline;
 }

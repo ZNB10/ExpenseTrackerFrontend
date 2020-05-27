@@ -9,7 +9,6 @@ export default ( {caption, type, value, name, onChange, ...props})=>{
                 type={type||"text"} 
                 value={value||""} 
                 name={name} 
-                placeholder="Ingrese..."
                 onChange={(onChange||function(){})}
             />
         </fieldset>

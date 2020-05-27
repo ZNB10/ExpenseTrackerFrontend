@@ -24,16 +24,16 @@ export default class Login extends Component{
     render(){
         return (
             <section>
-                <h1>Iniciar Sesion</h1>
+                <h1>User Login</h1>
                 <section>
                     <Campo 
-                        caption="Correo Electronico "
+                        caption="Email "
                         value={this.state.email}
                         name="email"
                         onChange={this.onChangeHandler}
                     />
                    <Campo
-                        caption="Contraseña"
+                        caption="Password"
                         type="password"
                         value={this.state.password}
                         name="password"

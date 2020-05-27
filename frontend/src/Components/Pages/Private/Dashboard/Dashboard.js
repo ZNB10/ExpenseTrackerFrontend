@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Dashboard.css';
 import ThingBox from './ThingsBox';
+import DatePanel from './DatePanel';
 
 const BigCard=({...props})=>(<div className="card big">{props.children}</div>);
 const SmallCard=({...props})=>(<div className="card">{props.children}</div>);

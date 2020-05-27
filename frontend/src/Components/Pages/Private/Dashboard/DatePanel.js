@@ -1,7 +1,23 @@
 import React from 'react';
+
 export default ({currentDate, dateBeforeHandler, dateAfterHandler})=>{
+
+    if(!currentDate){
+        currentDate = new Date();
+    }
+    if(!dateBeforeHandler){
+        dateBeforeHandler = ()=>{};
+    }
+    if(!dateAfterHandler){
+        dateAfterHandler = ()=>{};
+    }
+
     return(
-        <div className="dataPanel"><span>&lt;--</span><span>2020-05-27</span><span>--&gt;</span></div>
+        <div className="datePanel">
+            <span onClick={dateBeforeHandler}>&lt;--</span>
+            <span>{currentDate.getFullYear()}-{currentDate.getMonth() + 1 }-{ currentDate.getDate()}</span>
+            <span onClick={dateAfterHandler}>--&gt;</span>
+        </div>
 
     )
 }

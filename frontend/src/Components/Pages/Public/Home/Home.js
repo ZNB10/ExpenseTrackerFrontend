@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Button from  '../../../Components/Btns/Buttons';
+import Button from  '../../../Btns/Buttons';
 
-export default classs Home extends Component {
+export default class Home extends Component {
     render(){
         return(
         <div>

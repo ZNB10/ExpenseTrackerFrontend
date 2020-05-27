@@ -18,7 +18,7 @@
 }
 
 .big{
-    min-width: calc(50vh - 7rem);
+    min-width: calc(50vh - 3rem);
     width: 100%;
 }
 

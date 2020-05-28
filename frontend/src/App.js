@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 //react router
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { setJWT } from './Utilities';
 import NavBar from './Components/Common/NavBar/NavBar';
 
 import Home from './Components/Pages/Public/Home/Home';
@@ -24,6 +25,7 @@ class App extends Component {
   }//contructor
 
   setAuth(token, user){
+    setJWT(token);
     this.setState({
       auth:{
         logged: token && true,

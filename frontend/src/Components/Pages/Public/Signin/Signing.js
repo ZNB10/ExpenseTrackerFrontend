@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Button from '../../../Common/Btns/Buttons'
 import Campo from '../../../Common/Campo/Campo'
+import { naxios } from '../../../../Utilities';
 
 export default class Sigin extends Component{
 
@@ -9,6 +10,7 @@ export default class Sigin extends Component{
         this.state={
             email: '',
             password: '',
+            error:false
         };
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onSiginBtnClick = this.onSiginBtnClick.bind(this);
@@ -19,7 +21,18 @@ export default class Sigin extends Component{
         this.setState({...this.state,[name]:value});
     }
     onSiginBtnClick(e){
-        console.log(this.state);
+        console.log("Hola");
+
+        const {email, password} = this.state;
+        naxios.post('/api/security/signin', { email, password})
+        .then(({data})=>{
+            console.log("Esta es la data" + data);
+            this.props.history.push('/login');
+        })
+        .catch((error)=>{
+            console.log(error);
+            this.setState({error:"Error. No se pudo crear la cuenta, Intente nuevamente."})
+        })
     }
     render(){
         return (
@@ -39,9 +52,10 @@ export default class Sigin extends Component{
                         name="password"
                         onChange={this.onChangeHandler}
                    />
+                   {(this.state.error && true)?(<div className="error">{this.state.erro}</div>):null}
                     <section className="action">
                         <Button caption="Login" onClick={this.onSigninBtnClick} customClass="primary">Login</Button>
-                        <Button caption="Signin" onClick={this.onSigninBtnClick} customClass="link">Signin</Button>
+                        <Button caption="Signin" onClick={ (e)=> { this.props.history.push('/login')} } customClass="link" >Signin</Button>
                     </section>
                     
                 </section>

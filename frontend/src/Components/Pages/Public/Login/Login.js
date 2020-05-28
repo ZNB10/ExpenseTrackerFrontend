@@ -27,11 +27,14 @@ export default class Login extends Component{
                 this.props.setAuth(data.token, data.user)
                 }
             )
-            .catch((err)=>{console.log(err)})
+            .catch((err)=>{
+                console.log(err)
+                this.setState({"error":"Correo o contraseña incorrectas. Intenda de nuevo"});
+                }
+            )
         ;
     }
     render(){
-        console.log("Hola");
         console.log(this.props.auth);
         return (
             <section>

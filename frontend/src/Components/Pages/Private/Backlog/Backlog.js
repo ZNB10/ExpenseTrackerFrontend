@@ -24,7 +24,11 @@ export default class Backlog extends Component{
         paxios.get(uri)
             .then(
             ({data})=>{
-                console.log(data);
+                for (const key in data) {
+                    console.log(data[key]);
+
+                }
+                console.log(data.length);
                 const {things, totalThings} = data;
                 const loadedThings = this.state.things;
                 things.map((e)=>loadedThings.push(e));

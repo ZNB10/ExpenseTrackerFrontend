@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './Dashboard.css';
 import {MdAdd as Plus} from 'react-icons/md';
-import {paxios} from "../../../../Utilities"
+import {paxios} from "../../../../Utilities";
+import Select from '../../../Common/Select/Select';
 
 import ThingBox from './ThingsBox';
 import DatePanel from './DatePanel';
@@ -15,6 +16,13 @@ const CircleNumber = ({...props})=>(<div className="circle">{props.children}</di
 export default class Dashboard extends Component{
     constructor(){
         super();
+        this.state ={
+            things:[],
+            hasMore:true,
+            page:1,
+            itemsToLoad:10
+        }
+        this.SelectClick = this.SelectClick.bind(this);
     }
     componentDidMount(){
         paxios.get('/api/things/')
@@ -26,6 +34,23 @@ export default class Dashboard extends Component{
             })
         ;
     }
+    SelectClick(page){
+        const items = this.state.itemsToLoad;
+        const uri = `/api/things/page/${{page}}/${items}`;
+        console.log("Uri   "+ uri);
+        paxios.get(uri)
+            .then(
+                ({data})=>{
+                    var numOption = data.length;
+                }
+            )
+            .catch(
+                (err)=>{
+                    console.log(err);
+                }
+            );
+
+    }
     render(){
         return(
             <section>
@@ -33,12 +58,12 @@ export default class Dashboard extends Component{
                 <section className="main cardHolder fix640">
                     <form>
                         <label>Escoje un gasto</label>
-                        <select onClick={(e)=>{console.log("Se hizo click")}}>
+                        <Select onClick={this.SelectClick(3)}>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
                             <option>4</option>
-                        </select>
+                        </Select>
                     </form>
                 </section>
             </section>

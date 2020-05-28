@@ -54,8 +54,16 @@ export default class Sigin extends Component{
                    />
                    {(this.state.error && true)?(<div className="error">{this.state.erro}</div>):null}
                     <section className="action">
-                        <Button caption="Login" onClick={this.onSigninBtnClick} customClass="primary">Login</Button>
-                        <Button caption="Signin" onClick={ (e)=> { this.props.history.push('/login')} } customClass="link" >Signin</Button>
+                        <Button 
+                            caption="SingUp" 
+                            onClick={this.onSigninBtnClick} 
+                            customClass="primary"
+                        />
+                        <Button 
+                            caption="Signin" 
+                            customClass="link" 
+                            onClick={ (e)=> { this.props.history.push('/login')} }  
+                        />
                     </section>
                     
                 </section>

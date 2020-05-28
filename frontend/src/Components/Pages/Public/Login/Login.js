@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Redirect } from 'react-router-dom';
 import { naxios } from '../../../../Utilities';
 
 import Button from '../../../Common/Btns/Buttons';
@@ -10,6 +11,8 @@ export default class Login extends Component{
         this.state = {
             email: '',
             password: '',
+            redirect:false,
+            error:null
         };
         //autobinding
         this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -23,8 +26,8 @@ export default class Login extends Component{
         console.log(this.state);
         naxios.post('/api/security/login', this.state)
             .then(({data, status})=>{
-                console.log(data)
-                this.props.setAuth(data.token, data.user)
+                this.props.setAuth(data.token, data.user);
+                this.setState({redirect:true});
                 }
             )
             .catch((err)=>{
@@ -36,6 +39,13 @@ export default class Login extends Component{
     }
     render(){
         console.log(this.props.auth);
+        if(this.state.redirect){
+            return(
+                <Redirect
+                    to={(this.props.location.state) ? this.props.location.state.from.pathname : '/'}
+                />
+            );
+        }
         return (
             <section>
                 <h1>User Login</h1>
@@ -53,6 +63,7 @@ export default class Login extends Component{
                         name="password"
                         onChange={this.onChangeHandler}
                    />
+                   {(this.state.error && true)? (<div className="error">{this.state.console.error}</div>):null}
                     <section className="action">
                         <Button 
                             caption="Login" 
@@ -62,6 +73,7 @@ export default class Login extends Component{
                         <Button 
                             caption="Signin" 
                             customClass="link"
+                            onClick={(e)=>{this.props.history.push('/signin')}}
                         />
                     </section>
                 </section>

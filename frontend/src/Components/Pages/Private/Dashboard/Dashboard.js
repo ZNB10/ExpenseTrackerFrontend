@@ -31,11 +31,15 @@ export default class Dashboard extends Component{
             <section>
                 <h1>What will I spend today?</h1>
                 <section className="main cardHolder fix640">
-                <ThingBox thingType="big"><span className="circle"><Plus/></span>
-                </ThingBox>
-                <DatePanel/>
-                <ThingBox><span className="circle"><Plus/></span></ThingBox>
-                <ThingBox><span className="circle"><Plus/></span></ThingBox>
+                    <form>
+                        <label>Escoje un gasto</label>
+                        <select onClick={(e)=>{console.log("Se hizo click")}}>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </form>
                 </section>
             </section>
 

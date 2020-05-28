@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import './NavBar.css';
+import { IoIosLogIn, IoIosHome, IoIosKey } from 'react-icons/io';
 
 const NavItem = ({to, children, ...rest})=>{
     return(
@@ -10,9 +12,9 @@ const NavItem = ({to, children, ...rest})=>{
 export default ()=>{
     return (
         <nav>
-            <NavItem to="/">Login</NavItem>
-            <NavItem to="/signin">Signin</NavItem>
-            <NavItem to="/main">Main</NavItem>
+            <NavItem to="/"><IoIosLogIn/>&nbsp;Login</NavItem>
+            <NavItem to="/signin"><IoIosKey/>&nbsp;Signin</NavItem>
+            <NavItem to="/main"><IoIosHome/>&nbsp;Main</NavItem>
         </nav>
     );
 }

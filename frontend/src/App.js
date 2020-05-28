@@ -6,6 +6,11 @@ import { setJWT, setLocalStorage, getLocalStorage, setUnAuthHandler, removeLocal
 import NavBar from './Components/Common/NavBar/NavBar';
 import PrivateRoute from './PrivateRoute';
 
+//React router transition
+import {AnimatedSwitch} from 'react-router-transition';
+import { pageTransitions as transition, mapGlideStyles as mapStyles } from './Transition';
+
+
 import Home from './Components/Pages/Public/Home/Home';
 import Login from './Components/Pages/Public/Login/Login';
 import Sigin from './Components/Pages/Public/Signin/Signing'
@@ -53,14 +58,21 @@ class App extends Component {
     console.log(this.state.auth);
     return (
       <Router>
-        <section className="container">
-          <Route path="/" exact render={ (props)=>(<Home {...props} auth={this.state.auth} setUnAuth={this.setUnAuth}/>) } />
-          <Route path="/login" render={ (props)=>(<Login {...props} auth={this.state.auth} setAuth={this.setAuth}/>)} />
-          <Route path="/signin" component={Sigin}/>
-          <PrivateRoute path="/main" auth={this.state.auth} component={Dashboard}/>
-          <PrivateRoute path="/backlog" auth={this.state.auth} component={Backlog}/>
-          <PrivateRoute path="/detailadd" auth={this.state.auth} component={DetailAdd}/>
-          <PrivateRoute path="/detailupdate/:id" auth={this.state.auth} component={DetailUpdate}/>
+        <section className="conteiner">
+          <AnimatedSwitch
+            {...transition}
+            mapStyle={mapStyles}
+            className="switch-wrapper"
+
+          >
+            <Route path="/" exact render={ (props)=>(<Home {...props} auth={this.state.auth} setUnAuth={this.setUnAuth}/>) } />
+            <Route path="/login" render={ (props)=>(<Login {...props} auth={this.state.auth} setAuth={this.setAuth}/>)} />
+            <Route path="/signin" component={Sigin}/>
+            <PrivateRoute path="/main" auth={this.state.auth} component={Dashboard}/>
+            <PrivateRoute path="/backlog" auth={this.state.auth} component={Backlog}/>
+            <PrivateRoute path="/detailadd" auth={this.state.auth} component={DetailAdd}/>
+            <PrivateRoute path="/detailupdate/:id" auth={this.state.auth} component={DetailUpdate}/>
+          </AnimatedSwitch>
           <NavBar auth={this.state.auth}/>
         </section>
       </Router>

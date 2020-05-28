@@ -24,3 +24,8 @@ nav a{
     box-sizing: border-box;
 
 }
+
+.activeNa{
+    background-color: #fff;
+    color: #72c02c;
+}

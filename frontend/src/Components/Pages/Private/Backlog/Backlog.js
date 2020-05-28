@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import './Backlog.css';
 import {paxios} from '../../../../Utilities';
 import InfiniteScroll from 'react-infinite-scroller';
-import {IoIosInformationCircleOutline} from 'react-icons/io'
+import {IoIosInformationCircleOutline, IoMdAddCircle, IoIosSync} from 'react-icons/io'
+import {Link} from 'react-router-dom';
 
 export default class Backlog extends Component{
     constructor(){
@@ -26,7 +27,7 @@ export default class Backlog extends Component{
                 console.log(data);
                 const {things, totalThings} = data;
                 const loadedThings = this.state.things;
-                things.map((obj)=>{loadedThings.push(obj)});
+                things.map((e)=>{loadedThings.push(e)});
                 if(totalThings){
                     this.setState({
                         "things": loadedThings,
@@ -34,7 +35,7 @@ export default class Backlog extends Component{
                     })
                 }else{
                     this.setState({
-                        hasMore:false
+                        "hasMore":false
                     });
                 }
             }
@@ -45,34 +46,45 @@ export default class Backlog extends Component{
             }
         );
     }
+    
     render(){
     
         const items = this.state.things.map(
-            (thing)=>{
-                return(
-                <div className="thingItem" key={thing._id}>
-                    <span>{thing.descripcion}</span>
+        (thing)=>{
+            return(
+            <div className="thingItem" key={thing._id}>
+                <span>{thing.descripcion}</span>
+                <Link to={`/detail/${thing._id}`}>
                     <IoIosInformationCircleOutline size="2em"/>
-                </div>);
-            }
-        );
-        
-        
-        return(
-            <section>
-                <h1>My Things Backlog</h1>
-                <div className="backlog" ref={(ref)=>this.scrollParentRef = ref}>
-                    <InfiniteScroll pageStart={0}
-                        pageStart={0}
-                        loadMore={this.loadMore}
-                        hasMore={this.state.hasMore}
-                        useWindow={false}
-                        getScrollParent={()=>this.scrollParentRef}
-                        loader={(<div>Cargando..</div>)}
-                    >
-                    </InfiniteScroll>
-                </div>
-                    
+                </Link>
+            </div>);
+        }
+    );
+
+    if(!items.length) items.push(
+        <div className="thingItem" key="pbBakLogAddOne">
+            <span>Nuevo Thing</span>
+            <Link to="/detailadd">
+                <IoMdAddCircle size="2.5em"/>
+            </Link>
+        </div>
+    );
+    return(
+        <section>
+            <h1>My Things Backlog</h1>
+            <IoMdAddCircle size="1.5em"/>
+            <div className="backlog" ref={(ref)=>this.scrollParentRef = ref}>
+                <InfiniteScroll pageStart={0}
+                    pageStart={0}
+                    loadMore={this.loadMore}
+                    hasMore={this.state.hasMore}
+                    useWindow={false}
+                    getScrollParent={()=>this.scrollParentRef}
+                    loader={<div key="pbBackLogLoading" className="thingItem center"><IoIosSync/></div>}
+                >
+                    {items}
+                </InfiniteScroll>
+            </div>
             </section>
         );
     }

@@ -40,3 +40,32 @@ export const setUnAuthHandler = (handler) =>{
 }
 export const naxios = normalAxios;
 export const paxios = privateAxios;
+
+//LocalStorage
+const localStorageAvailable = (()=>{
+    let t='t';
+    try{
+        localStorage.setItem(t,t);
+        localStorage.removeItem(t);
+        return true;
+    }catch(e){
+        return false;
+    }
+})();
+
+export const getLocalStorage = (key)=>{
+    if(!localStorageAvailable) { return null;}
+    return localStorage.getItem(key);
+}
+
+export const setLocalStorage = (key, value)=>{
+    if(!localStorageAvailable){return false;}
+    localStorage.setItem(key, value);
+    return true
+}
+
+export const removeLocalStorage = async (key) =>{
+    if(!localStorageAvailable){return false;}
+    localStorage.removeItem(key);
+    return true
+}

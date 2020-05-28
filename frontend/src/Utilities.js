@@ -30,7 +30,7 @@ export const setUnAuthHandler = (handler) =>{
                 }
                 
             }else if(error.request){
-                console.log(erros.request);
+                console.log(error.request);
             }else{
                 console.log(error);
             }

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 //react router
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import { setJWT } from './Utilities';
+import { setJWT, setLocalStorage, getLocalStorage, setUnAuthHandler, removeLocalStorage } from './Utilities';
 import NavBar from './Components/Common/NavBar/NavBar';
 import PrivateRoute from './PrivateRoute';
 
@@ -16,13 +16,15 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      "auth":{
+      "auth":(JSON.parse(getLocalStorage('auth')) ||
+      {
         logged: false,
         token: '',
         user: {}
-      }
+      })
     }
     this.setAuth = this.setAuth.bind(this);
+    this.setUnAuth = this.setUnAuth.bind(this);
   }//contructor
 
   setUnAuth(error){

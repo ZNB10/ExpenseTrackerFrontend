@@ -56,13 +56,13 @@ export default class Sigin extends Component{
                     <section className="action">
                         <Button 
                             caption="SingUp" 
-                            onClick={this.onSigninBtnClick} 
+                            onClick={this.onSiginBtnClick} 
                             customClass="primary"
                         />
                         <Button 
-                            caption="Signin" 
+                            caption="User Login" 
                             customClass="link" 
-                            onClick={ (e)=> { this.props.history.push('/login')} }  
+                            onClick={ (e)=> { this.props.history.push('/login')}}
                         />
                     </section>
                     

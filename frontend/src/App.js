@@ -19,12 +19,15 @@ class App extends Component {
       "auth":(JSON.parse(getLocalStorage('auth')) ||
       {
         logged: false,
-        token: '',
+        token: false,
         user: {}
       })
     }
     this.setAuth = this.setAuth.bind(this);
     this.setUnAuth = this.setUnAuth.bind(this);
+    
+    setJWT(this.state.auth.token);
+    setUnAuthHandler(this.setUnAuth);
   }//contructor
 
   setUnAuth(error){

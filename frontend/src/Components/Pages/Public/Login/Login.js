@@ -71,7 +71,7 @@ export default class Login extends Component{
                             customClass="primary"
                         />
                         <Button 
-                            caption="Signin" 
+                            caption="Signup" 
                             customClass="link"
                             onClick={(e)=>{this.props.history.push('/signin')}}
                         />

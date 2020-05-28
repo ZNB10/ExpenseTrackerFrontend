@@ -6,7 +6,6 @@ import {IoIosInformationCircleOutline} from 'react-icons/io'
 
 export default class Backlog extends Component{
     constructor(){
-        console.log("Entro a constructor");
         super();
         this.state ={
             things:[],
@@ -18,7 +17,6 @@ export default class Backlog extends Component{
     }
 
     loadMore(page){
-        console.log("Entro a load More");
         const items = this.state.itemsToLoad;
         const uri = `/api/things/page/${page}/${items}`;
         console.log("Uri   "+ uri);
@@ -28,7 +26,7 @@ export default class Backlog extends Component{
                 console.log(data);
                 const {things, totalThings} = data;
                 const loadedThings = this.state.things;
-                things.map((o)=>{loadedThings.push(o)});
+                things.map((obj)=>{loadedThings.push(obj)});
                 if(totalThings){
                     this.setState({
                         "things": loadedThings,
@@ -48,21 +46,17 @@ export default class Backlog extends Component{
         );
     }
     render(){
-        console.log("Holaaaa its render"+this.state.things);
-        console.log(this.state.things);
-        if(!this.state.things){
-            console.log("No esta definida");
-        }else{
-            const items = this.state.things.map(
-                (thing)=>{
-                    return(
-                    <div className="thingItem" key={thing._id}>
-                        <span>{thing.descripcion}</span>
-                        <IoIosInformationCircleOutline size="2em"/>
-                    </div>);
-                }
-            );
-        }
+    
+        const items = this.state.things.map(
+            (thing)=>{
+                return(
+                <div className="thingItem" key={thing._id}>
+                    <span>{thing.descripcion}</span>
+                    <IoIosInformationCircleOutline size="2em"/>
+                </div>);
+            }
+        );
+        
         
         return(
             <section>

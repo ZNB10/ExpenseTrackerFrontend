@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Dashboard.css';
-import 
+import {MdAdd as Plus} from 'react-icons/md';
 
 import ThingBox from './ThingsBox';
 import DatePanel from './DatePanel';
@@ -15,18 +15,11 @@ export default class Dashboard extends Component{
             <section>
                 <h1>One Big Thing Dashbord</h1>
                 <section className="main cardHolder fix640">
-                <ThingBox thingType="big">
-                    <div>
-                        <h1>One</h1>
-                    </div>
+                <ThingBox thingType="big"><span className="circle"><Plus/></span>
                 </ThingBox>
                 <DatePanel/>
-                <ThingBox>
-                    Two
-                </ThingBox>
-                <ThingBox >
-                    Three
-                </ThingBox>
+                <ThingBox><span className="circle"><Plus/></span></ThingBox>
+                <ThingBox><span className="circle"><Plus/></span></ThingBox>
                 </section>
             </section>
 

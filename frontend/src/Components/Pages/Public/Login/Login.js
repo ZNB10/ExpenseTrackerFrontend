@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { naxios } from '../../../../Utilities';
+
 import Button from '../../../Common/Btns/Buttons';
 import Campo from '../../../Common/Campo/Campo';
 
@@ -19,6 +21,10 @@ export default class Login extends Component{
     }
     onSigninBtnClick(e){
         console.log(this.state);
+        naxios.get('/api')
+            .then((data)=>{console.log(data)})
+            .catch((ERR)=>{console.log(ERR)})
+        ;
     }
     render(){
         return (

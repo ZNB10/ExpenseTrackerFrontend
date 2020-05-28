@@ -54,7 +54,7 @@ export default class Backlog extends Component{
             return(
             <div className="thingItem" key={thing._id}>
                 <span>{thing.descripcion}</span>
-                <Link to={`/detail/${thing._id}`}>
+                <Link to={`/detailupdate/${thing._id}`}>
                     <IoIosInformationCircleOutline size="2em"/>
                 </Link>
             </div>);
@@ -72,7 +72,9 @@ export default class Backlog extends Component{
     return(
         <section>
             <h1>My Things Backlog
-            <IoMdAddCircle size="1.5em"/>
+            <Link to="/detailadd">
+                <IoMdAddCircle size="1.5em"/>
+            </Link>
             </h1>
             <div className="backlog" ref={(ref)=>this.scrollParentRef = ref}>
                 <InfiniteScroll pageStart={0}

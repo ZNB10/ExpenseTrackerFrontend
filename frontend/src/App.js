@@ -12,6 +12,7 @@ import Sigin from './Components/Pages/Public/Signin/Signing'
 import Dashboard from './Components/Pages/Private/Dashboard/Dashboard'
 import Backlog from './Components/Pages/Private/Backlog/Backlog';
 import DetailAdd from './Components/Pages/Private/Detail/DetailAdd';
+import DetailUpdate from './Components/Pages/Private/Detail/DetailUpdate';
 
 
 class App extends Component {
@@ -59,6 +60,7 @@ class App extends Component {
           <PrivateRoute path="/main" auth={this.state.auth} component={Dashboard}/>
           <PrivateRoute path="/backlog" auth={this.state.auth} component={Backlog}/>
           <PrivateRoute path="/detailadd" auth={this.state.auth} component={DetailAdd}/>
+          <PrivateRoute path="/detailupdate/:id" auth={this.state.auth} component={DetailUpdate}/>
           <NavBar auth={this.state.auth}/>
         </section>
       </Router>

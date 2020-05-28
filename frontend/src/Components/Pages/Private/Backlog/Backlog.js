@@ -22,12 +22,12 @@ export default class Backlog extends Component{
         const uri = `/api/things/page/${page}/${items}`;
         console.log("Uri   "+ uri);
         paxios.get(uri)
-        .then(
-            (data)=>{
+            .then(
+            ({data})=>{
                 console.log(data);
                 const {things, totalThings} = data;
                 const loadedThings = this.state.things;
-                things.map((e)=>{loadedThings.push(e)});
+                things.map((e)=>loadedThings.push(e));
                 if(totalThings){
                     this.setState({
                         "things": loadedThings,
@@ -62,8 +62,8 @@ export default class Backlog extends Component{
     );
 
     if(!items.length) items.push(
-        <div className="thingItem" key="pbBakLogAddOne">
-            <span>Nuevo Thing</span>
+        <div className="thingItem" key="pbBackLogAddOne">
+            <span>New Thing</span>
             <Link to="/detailadd">
                 <IoMdAddCircle size="2.5em"/>
             </Link>
@@ -71,8 +71,9 @@ export default class Backlog extends Component{
     );
     return(
         <section>
-            <h1>My Things Backlog</h1>
+            <h1>My Things Backlog
             <IoMdAddCircle size="1.5em"/>
+            </h1>
             <div className="backlog" ref={(ref)=>this.scrollParentRef = ref}>
                 <InfiniteScroll pageStart={0}
                     pageStart={0}

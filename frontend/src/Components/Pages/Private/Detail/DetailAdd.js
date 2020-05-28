@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Button from '../../../Common/Btns/Buttons'
 import Campo from '../../../Common/Campo/Campo'
-import { naxios } from '../../../../Utilities';
+import { paxios } from '../../../../Utilities';
 
 export default class DetailAdd extends Component{
 
@@ -21,7 +21,7 @@ export default class DetailAdd extends Component{
     }
     onSaveBtnClick(e){
         const {descripcion} = this.state;
-        naxios.post('/api/things', { descripcion})
+        paxios.post('/api/things', { descripcion})
         .then(({data})=>{
             this.props.history.push('/backlog');
         })
@@ -36,18 +36,19 @@ export default class DetailAdd extends Component{
                 <h1>New Thing</h1>
                 <section className="main fix640">
                     <Campo 
-                        caption="Descripcion "
+                        caption="Description "
                         value={this.state.descripcion}
                         name="descripcion"
                         onChange={this.onChangeHandler}
                     />
-                   {(this.state.error && true)?(<div className="error">{this.state.erro}</div>):null}
+                   {(this.state.error && true)?(<div className="error">{this.state.error}</div>):null}
                     <section className="action">
                         <Button 
-                            caption="Create Thing" 
-                            onClick={this.onSiginBtnClick} 
+                            caption="Create" 
+                            onClick={this.onSaveBtnClick} 
                             customClass="primary"
                         />
+                        <br></br>
                         <Button 
                             caption="Cancel" 
                             customClass="secundary" 

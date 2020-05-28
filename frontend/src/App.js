@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 //react router
 import {BrowserRouter as Router, Route} from 'react-router-dom';
@@ -9,17 +9,20 @@ import Login from './Components/Pages/Public/Login/Login';
 import Sigin from './Components/Pages/Public/Signin/Signing'
 import Dashboard from './Components/Pages/Private/Dashboard/Dashboard'
 
-function App() {
-  return (
-    <Router>
-      <section className="container">
-        <Route path="/" exact component={Login}></Route>
-        <Route path="/signin" exact component={Sigin}></Route>
-        <Route path="/main" exact component={Dashboard}></Route>
-        <NavBar/>
-      </section>
-    </Router>
-  );
+
+class App extends Component() {
+  render(){
+    return (
+      <Router>
+        <section className="container">
+          <Route path="/" exact component={Login}></Route>
+          <Route path="/signin" exact component={Sigin}></Route>
+          <Route path="/main" exact component={Dashboard}></Route>
+          <NavBar/>
+        </section>
+      </Router>
+    );
+  }
 }
 
 export default App;

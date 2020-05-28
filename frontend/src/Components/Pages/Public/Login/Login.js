@@ -21,9 +21,9 @@ export default class Login extends Component{
     }
     onSigninBtnClick(e){
         console.log(this.state);
-        naxios.get('/api/')
+        naxios.post('/api/security/login', this.state)
             .then((data)=>{console.log(data)})
-            .catch((ERR)=>{console.log(ERR)})
+            .catch((err)=>{console.log(err)})
         ;
     }
     render(){

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Dashboard.css';
 import {MdAdd as Plus} from 'react-icons/md';
+import {paxios} from "../../../../Utilities"
 
 import ThingBox from './ThingsBox';
 import DatePanel from './DatePanel';
@@ -10,6 +11,18 @@ const SmallCard=({...props})=>(<div className="card">{props.children}</div>);
 const CircleNumber = ({...props})=>(<div className="circle">{props.children}</div>);
 
 export default class Dashboard extends Component{
+    constructor(){
+        super();
+    }
+    componentDidMount(){
+        paxios.get('/api/things/')
+            .then(({data, status})=>{
+                console.log(data);
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+    }
     render(){
         return(
             <section>

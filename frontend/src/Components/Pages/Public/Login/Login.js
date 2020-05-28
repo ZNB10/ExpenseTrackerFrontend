@@ -22,11 +22,17 @@ export default class Login extends Component{
     onSigninBtnClick(e){
         console.log(this.state);
         naxios.post('/api/security/login', this.state)
-            .then((data)=>{console.log(data)})
+            .then(({data, status})=>{
+                console.log(data)
+                this.props.setAuth(data.token, data.user)
+                }
+            )
             .catch((err)=>{console.log(err)})
         ;
     }
     render(){
+        console.log("Hola");
+        console.log(this.props.auth);
         return (
             <section>
                 <h1>User Login</h1>

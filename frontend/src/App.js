@@ -10,12 +10,33 @@ import Sigin from './Components/Pages/Public/Signin/Signing'
 import Dashboard from './Components/Pages/Private/Dashboard/Dashboard'
 
 
-class App extends Component() {
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      "auth":{
+        logged: false,
+        token: '',
+        user: {}
+      }
+    }
+    this.setAuth = this.setAuth.bind(this);
+  }//contructor
+
+  setAuth(token, user){
+    this.setState({
+      auth:{
+        logged: token && true,
+        token: token,
+        user: user
+      }
+    });
+  }
   render(){
     return (
       <Router>
         <section className="container">
-          <Route path="/" exact component={Login}></Route>
+          <Route path="/" exact render={ ()=>(<Login auth={this.state.auth} setAuth={this.setAuth}/>) } />
           <Route path="/signin" exact component={Sigin}></Route>
           <Route path="/main" exact component={Dashboard}></Route>
           <NavBar/>

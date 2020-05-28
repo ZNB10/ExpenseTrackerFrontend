@@ -29,7 +29,7 @@ export default class Dashboard extends Component{
     render(){
         return(
             <section>
-                <h1>One Big Thing Dashbord</h1>
+                <h1>What will I spend today?</h1>
                 <section className="main cardHolder fix640">
                 <ThingBox thingType="big"><span className="circle"><Plus/></span>
                 </ThingBox>

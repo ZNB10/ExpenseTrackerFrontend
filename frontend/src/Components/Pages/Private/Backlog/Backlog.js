@@ -71,7 +71,7 @@ export default class Backlog extends Component{
     );
     return(
         <section>
-            <h1>My Things Backlog
+            <h1>I spend on ...
             <Link to="/detailadd">
                 <IoMdAddCircle size="1.5em"/>
             </Link>

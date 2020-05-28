@@ -10,6 +10,7 @@ import Home from './Components/Pages/Public/Home/Home';
 import Login from './Components/Pages/Public/Login/Login';
 import Sigin from './Components/Pages/Public/Signin/Signing'
 import Dashboard from './Components/Pages/Private/Dashboard/Dashboard'
+import Backlog from './Components/Pages/Private/Backlog/Backlog';
 
 
 class App extends Component {
@@ -55,6 +56,7 @@ class App extends Component {
           <Route path="/login" render={ (props)=>(<Login {...props} auth={this.state.auth} setAuth={this.setAuth}/>)} />
           <Route path="/signin" component={Sigin}/>
           <PrivateRoute path="/main" auth={this.state.auth} component={Dashboard}/>
+          <PrivateRoute path="/backlog" auth={this.state.auth} component={Backlog}/>
           <NavBar auth={this.state.auth}/>
         </section>
       </Router>

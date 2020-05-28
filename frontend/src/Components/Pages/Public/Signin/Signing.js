@@ -30,7 +30,7 @@ export default class Sigin extends Component{
             this.props.history.push('/login');
         })
         .catch((error)=>{
-            console.log(error);
+            console.log("Aqui ocurrio un error: " +error);
             this.setState({error:"Error. No se pudo crear la cuenta, Intente nuevamente."})
         })
     }

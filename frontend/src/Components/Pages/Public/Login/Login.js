@@ -63,7 +63,7 @@ export default class Login extends Component{
                         name="password"
                         onChange={this.onChangeHandler}
                    />
-                   {(this.state.error && true)? (<div className="error">{this.state.console.error}</div>):null}
+                   {(this.state.error && true)? (<div className="error">{this.state.error}</div>):null}
                     <section className="action">
                         <Button 
                             caption="Login" 

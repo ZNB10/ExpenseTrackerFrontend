@@ -21,10 +21,8 @@ export default class Sigin extends Component{
         this.setState({...this.state,[name]:value});
     }
     onSiginBtnClick(e){
-        console.log("Hola");
-
         const {email, password} = this.state;
-        naxios.post('/api/security/signin', { email, password})
+        naxios.post('/api/security/security/signin', { email, password})
         .then(({data})=>{
             console.log("Esta es la data" + data);
             this.props.history.push('/login');

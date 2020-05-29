@@ -29,10 +29,12 @@ export default class Dashboard extends Component{
         const{name, value} = e.target;
         this.setState({...this.state, [name]:value}); 
     }
+
     onSaveBtnClick(e){
-        const {expenseMoney} = this.state;
-        paxios.post()
+        const {expenseDesc, expenseMoney} = this.state;
+        paxios.post('/api/expenses/expenses', {expenseDesc, expenseMoney})
         .then(({data})=>{
+            console.log("Esta es la data" + data);
             this.props.history.push('/main');
         }) 
         .catch((error)=>{

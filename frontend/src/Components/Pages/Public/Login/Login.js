@@ -24,7 +24,7 @@ export default class Login extends Component{
     }
     onSigninBtnClick(e){
         console.log(this.state);
-        naxios.post('/api/security/login', this.state)
+        naxios.post('/api/security/security/login', this.state)
             .then(({data, status})=>{
                 this.props.setAuth(data.token, data.user);
                 this.setState({redirect:true});

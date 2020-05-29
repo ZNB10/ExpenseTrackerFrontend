@@ -3,7 +3,6 @@ import './Dashboard.css';
 import {paxios} from "../../../../Utilities";
 
 //Common
-import Select from '../../../Common/Select/Select';
 import Campo from '../../../Common/Campo/Campo';
 import Button from '../../../Common/Btns/Buttons';
 
@@ -34,19 +33,7 @@ export default class Dashboard extends Component{
     onChangeHandler(evt){
         
         const{name, value} = evt.currentTarget;
-
-        for (const key in name) {
-            var a = 0;
-            a++;
-            console.log("Esto es: "+name[key]+" "+ "indice: " + a)
-        }
-
         this.setState({...this.state, [name]:value});
-
-        for (const key in this.state) {
-            console.log("errorrr: "+this.state[key]);
-        }
-
     }
     
 
@@ -71,13 +58,13 @@ export default class Dashboard extends Component{
                     <form>
                         <label>Choose an expense </label>
                         <select name="expenseType" onChange={(evt) => this.onChangeHandler(evt)}>
-                            <option value={"comestible"}>Comestible</option>
-                            <option value={"family"}>Family</option>
-                            <option value={"restaurants"}>Restaurants</option>
-                            <option value={"freeTime"}>Free Time</option>
+                            <option value={"Comestible"}>Comestible</option>
+                            <option value={"Family"}>Family</option>
+                            <option value={"Restaurants"}>Restaurants</option>
+                            <option value={"FreeTime"}>Free Time</option>
                             <option value={"Transport"}>Transport</option>
-                            <option value={"presents"}>Presents</option>
-                            <option value={"purchases"}>Purchases</option>
+                            <option value={"Presents"}>Presents</option>
+                            <option value={"Purchases"}>Purchases</option>
                             
                         </select><br/><br/>
                         <Campo

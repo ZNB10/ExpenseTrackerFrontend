@@ -75,7 +75,7 @@ export default class Dashboard extends Component{
                         />
                          {(this.state.error && true)? (<div className="error">{this.state.error}</div>):null}
                          <Campo
-                            caption="How much i spent?"
+                            caption="How much I spent?"
                             value={this.state.expenseMoney}
                             name="expenseMoney"
                             type="number"

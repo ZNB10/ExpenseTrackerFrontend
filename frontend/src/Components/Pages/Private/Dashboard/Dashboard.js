@@ -31,8 +31,8 @@ export default class Dashboard extends Component{
     }
 
     onSaveBtnClick(e){
-        const {expenseDesc, expenseMoney} = this.state;
-        paxios.post('/api/expenses/', {expenseDesc, expenseMoney})
+        const {expenseType, expenseDesc, expenseMoney} = this.state;
+        paxios.post('/api/expenses/expenses', {expenseType, expenseDesc, expenseMoney})
         .then(({data})=>{
             console.log("Esta es la data" + data);
             this.props.history.push('/main');
@@ -49,7 +49,7 @@ export default class Dashboard extends Component{
                 <section className="main fix640">
                     <form>
                         <label>Choose an expense </label>
-                        <Select >
+                        <Select onChange={(e)=>}>
                             <option value={"health"}>Health</option>
                             <option value={"comestible"}>Comestible</option>
                             <option value={"family"}>Family</option>

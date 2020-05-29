@@ -33,7 +33,14 @@ export default class Dashboard extends Component{
     onChangeHandler(evt){
         
         const{name, value} = evt.currentTarget;
-        this.setState({...this.state, [name]:value});
+
+
+        if(evt.currentTarget.name == "expenseMoney"){
+            this.setState({...this.state, [name]:parseInt(value)});
+        }else{
+            this.setState({...this.state, [name]:value});
+        }
+        
     }
     
 
@@ -77,7 +84,6 @@ export default class Dashboard extends Component{
                             caption="How much I spent?"
                             value={this.state.expenseMoney}
                             name="expenseMoney"
-                            type="number"
                             onChange={this.onChangeHandler}
                         />
                          {(this.state.error && true)? (<div className="error">{this.state.error}</div>):null}

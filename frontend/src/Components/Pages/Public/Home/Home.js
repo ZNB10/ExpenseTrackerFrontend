@@ -14,6 +14,7 @@ export default class Home extends Component {
                 <section className="main fix640">
                     <h2>Spending too much on Baleadas</h2>
                     <h3>Top Higher Expense</h3>
+                    <h3>I spend more on</h3>
                     <h3>Last Expense</h3>
                     <h3>Total spent</h3>
 

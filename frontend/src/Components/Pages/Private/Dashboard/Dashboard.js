@@ -5,6 +5,7 @@ import {paxios} from "../../../../Utilities";
 //Common
 import Select from '../../../Common/Select/Select';
 import Campo from '../../../Common/Campo/Campo';
+import Button from '../../../Common/Btns/Buttons';
 
 
 /*
@@ -22,10 +23,22 @@ export default class Dashboard extends Component{
             error:false
         }
         this.onChangeHandler = this.onChangeHandler.bind(this);
+        this.onSaveBtnClick = this.onSaveBtnClick.bind(this);
     }
     onChangeHandler(e){
         const{name, value} = e.target;
         this.setState({...this.state, [name]:value}); 
+    }
+    onSaveBtnClick(e){
+        const {expenseMoney} = this.state;
+        paxios.post()
+        .then(({data})=>{
+            this.props.history.push('/main');
+        }) 
+        .catch((error)=>{
+            this.setState({error:"Error. No se pudo registrar el nuevo gasto"})
+
+        })
     }
     render(){
         return(
@@ -59,7 +72,13 @@ export default class Dashboard extends Component{
                             onChange={this.onChangeHandler}
                         />
                          {(this.state.error && true)? (<div className="error">{this.state.error}</div>):null}
-                        
+                        <section className="action">
+                            <Button
+                                caption="OK"
+                                onClick={this.onSaveBtnClick}
+                                customClass="primary"
+                            />
+                        </section>
                     </form>
                 </section>
             </section>

@@ -26,7 +26,6 @@ export default class DetailAdd extends Component{
             this.props.history.push('/backlog');
         })
         .catch((error)=>{
-            console.log("Aqui ocurrio un error: " +error);
             this.setState({error:"Error. No se pudo crear nuevo thing, Intente nuevamente."})
         })
     }

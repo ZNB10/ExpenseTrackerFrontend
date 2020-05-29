@@ -35,7 +35,7 @@ export default class Dashboard extends Component{
         const{name, value} = evt.currentTarget;
 
 
-        if(evt.currentTarget.name == "expenseMoney"){
+        if(evt.currentTarget.name === "expenseMoney"){
             this.setState({...this.state, [name]:parseInt(value)});
         }else{
             this.setState({...this.state, [name]:value});

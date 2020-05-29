@@ -9,7 +9,7 @@ export default class Backlog extends Component{
     constructor(){
         super();
         this.state ={
-            things:[],
+            expenses:[],
             hasMore:true,
             page:1,
             itemsToLoad:10
@@ -19,22 +19,20 @@ export default class Backlog extends Component{
 
     loadMore(page){
         const items = this.state.itemsToLoad;
-        const uri = `/api/things/page/${page}/${items}`;
+        const uri = `/api/expenses/expenses/page/${page}/${items}`;
         paxios.get(uri)
             .then(
             ({data})=>{
-                /*
-                for (const key in data) {
-                    console.log(data[key]);
-
-                }*/
-                const {things, totalThings} = data;
-                const loadedThings = this.state.things;
-                things.map((e)=>loadedThings.push(e));
-                if(totalThings){
+                for (const key in data ){
+                    console.log("Data es :" + data[key]);
+                }
+                const {expenses, totalExpenses} = data;
+                const loadedExpenses = this.state.expenses;
+                expenses.map((e)=>loadedExpenses.push(e));
+                if(totalExpenses){
                     this.setState({
-                        "things": loadedThings,
-                        "hasMore": (page * items < totalThings)
+                        "expenses": loadedExpenses,
+                        "hasMore": (page * items < totalExpenses)
                     })
                 }else{
                     this.setState({
@@ -51,14 +49,13 @@ export default class Backlog extends Component{
     }
     
     render(){
-    
-        const items = this.state.things.map(
-        (thing)=>{
+        const items = this.state.expenses.map(
+        (expens)=>{
             return(
-            <div className="thingItem" key={thing._id}>
-                <span>{thing.descripcion}</span>
+            <div className="thingItem" key={expens._id}>
+                <span>{expens.expenseDesc}</span>
                 <span className="updateThing">
-                    <Link to={`/detailupdate/${thing._id}`}>
+                    <Link to={`/detailupdate/${expens._id}`}>
                         <IoIosInformationCircleOutline size="2em"/>
                     </Link>
                 </span>
@@ -76,7 +73,7 @@ export default class Backlog extends Component{
     );
     return(
         <section>
-            <h1>I spend on ...</h1>
+            <h1>I spent on ...</h1>
             <div className="backlog" ref={(ref)=>this.scrollParentRef = ref}>
                 <InfiniteScroll pageStart={0}
                     pageStart={0}

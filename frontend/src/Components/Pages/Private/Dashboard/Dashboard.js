@@ -32,7 +32,7 @@ export default class Dashboard extends Component{
 
     onSaveBtnClick(e){
         const {expenseDesc, expenseMoney} = this.state;
-        paxios.post('/api/expenses/expenses', {expenseDesc, expenseMoney})
+        paxios.post('/api/expenses/', {expenseDesc, expenseMoney})
         .then(({data})=>{
             console.log("Esta es la data" + data);
             this.props.history.push('/main');

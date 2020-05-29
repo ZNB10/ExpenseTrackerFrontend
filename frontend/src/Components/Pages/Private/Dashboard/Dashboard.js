@@ -2,7 +2,10 @@ import React, {Component} from 'react';
 import './Dashboard.css';
 import {MdAdd as Plus} from 'react-icons/md';
 import {paxios} from "../../../../Utilities";
+
+//Common
 import Select from '../../../Common/Select/Select';
+import Campo from '../../../Common/Campo/Campo';
 
 import ThingBox from './ThingsBox';
 import DatePanel from './DatePanel';
@@ -57,13 +60,20 @@ export default class Dashboard extends Component{
                 <h1>What will I spend today?</h1>
                 <section className="main cardHolder fix640">
                     <form>
-                        <label>Escoje un gasto</label>
+                        <label>Choose an expense </label>
                         <Select onClick={this.SelectClick(3)}>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                        </Select>
+                            <option value={"health"}>Health</option>
+                            <option value={"comestible"}>Comestible</option>
+                            <option value={"family"}>Family</option>
+                            <option value={"restaurants"}>Restaurants</option>
+                            <option value={"freeTime"}>Free Time</option>
+                            <option value={"Transport"}>Transport</option>
+                            <option value={"presents"}>Presents</option>
+                            <option value={"purchases"}>Purchases</option>
+                        </Select><br/>
+                        <label>Expense Description</label>
+                        <input></input>
+
                     </form>
                 </section>
             </section>

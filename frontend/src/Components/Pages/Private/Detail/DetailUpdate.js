@@ -8,7 +8,7 @@ export default class DetailUpdate extends Component{
     constructor(){
         super();
         this.state={
-            descripcion:'',
+            expenseDesc:'',
             error:false
         };
         this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -17,7 +17,7 @@ export default class DetailUpdate extends Component{
 
     componentDidMount(){
         const { match: {params}} = this.props ;
-        const uri = `/api/things/${params.id}`;
+        const uri = `/api/expenses/expenses/${params.id}`; ///api/things/${params.id}
         paxios.get(uri)
         .then(
             ({data})=>{
@@ -36,8 +36,8 @@ export default class DetailUpdate extends Component{
         this.setState({...this.state,[name]:value});
     }
     onSaveBtnClick(e){
-        const {descripcion, _id} = this.state;
-        paxios.put(`/api/things/${_id}`, { descripcion })
+        const {expenseDesc, _id} = this.state;
+        paxios.put(`/api/expenses/expenses/${_id}`, {expenseDesc}) //api/things/${_id}
             .then(({data})=>{
                 this.props.history.push('/backlog');
             })
@@ -47,15 +47,15 @@ export default class DetailUpdate extends Component{
             })
     }
     render(){
-        console.log("This.state : " + this.setState);
+        //console.log("This.state : " + this.setState); //Ver todo
         return (
             <section>
                 <h1>ID : {this.props.match.params.id}</h1>
                 <section className="main fix640">
                     <Campo 
-                        caption="Description "
-                        value={this.state.descripcion}
-                        name="descripcion"
+                        caption="Description"
+                        value={this.state.expenseDesc}
+                        name="expenseDesc"
                         onChange={this.onChangeHandler}
                     />
                    {(this.state.error && true)?(<div className="error">{this.state.error}</div>):null}

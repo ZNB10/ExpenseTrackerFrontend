@@ -23,9 +23,6 @@ export default class Backlog extends Component{
         paxios.get(uri)
             .then(
             ({data})=>{
-                for (const key in data ){
-                    console.log("Data es :" + data[key]);
-                }
                 const {expenses, totalExpenses} = data;
                 const loadedExpenses = this.state.expenses;
                 expenses.map((e)=>loadedExpenses.push(e));
@@ -65,7 +62,7 @@ export default class Backlog extends Component{
 
     if(!items.length) items.push(
         <div className="thingItem" key="pbBackLogAddOne">
-            <span>New Thing</span>
+            <span>New expense</span>
             <Link to="/detailadd">
                 <IoMdAddCircle size="2.5em"/>
             </Link>

@@ -7,7 +7,7 @@ export default ({component:Component, auth, ...rest})=>{
             {...rest}
             render={
                 (props)=>{
-                    console.log(auth);
+                    //console.log(auth); ver autorizacion
                     return (auth.logged) ? ( <Component {...props} auth={auth} />) : (<Redirect to={{pathname:"/login", state:{from: props.location}}} />)
                 }
             }

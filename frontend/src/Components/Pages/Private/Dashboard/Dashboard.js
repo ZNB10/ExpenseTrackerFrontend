@@ -14,23 +14,44 @@ const SmallCard=({...props})=>(<div className="card">{props.children}</div>);
 const CircleNumber = ({...props})=>(<div className="circle">{props.children}</div>);
 
 */
+
+
 export default class Dashboard extends Component{
+    
     constructor(){
+        
         super();
         this.state ={
+            expenseType:'',
             expenseDesc:'',
             expenseMoney:0,
             error:false
         }
+        
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onSaveBtnClick = this.onSaveBtnClick.bind(this);
     }
-    onChangeHandler(e){
-        const{name, value} = e.target;
-        this.setState({...this.state, [name]:value}); 
+    onChangeHandler(evt){
+        
+        const{name, value} = evt.currentTarget;
+
+        for (const key in name) {
+            var a = 0;
+            a++;
+            console.log("Esto es: "+name[key]+" "+ "indice: " + a)
+        }
+
+        this.setState({...this.state, [name]:value});
+
+        for (const key in this.state) {
+            console.log("errorrr: "+this.state[key]);
+        }
+
     }
+    
 
     onSaveBtnClick(e){
+        
         const {expenseType, expenseDesc, expenseMoney} = this.state;
         paxios.post('/api/expenses/expenses', {expenseType, expenseDesc, expenseMoney})
         .then(({data})=>{
@@ -49,8 +70,7 @@ export default class Dashboard extends Component{
                 <section className="main fix640">
                     <form>
                         <label>Choose an expense </label>
-                        <Select onChange={(e)=>}>
-                            <option value={"health"}>Health</option>
+                        <select name="expenseType" onChange={(evt) => this.onChangeHandler(evt)}>
                             <option value={"comestible"}>Comestible</option>
                             <option value={"family"}>Family</option>
                             <option value={"restaurants"}>Restaurants</option>
@@ -58,7 +78,8 @@ export default class Dashboard extends Component{
                             <option value={"Transport"}>Transport</option>
                             <option value={"presents"}>Presents</option>
                             <option value={"purchases"}>Purchases</option>
-                        </Select><br/><br/>
+                            
+                        </select><br/><br/>
                         <Campo
                             caption="Expense Description"
                             value={this.state.expenseDesc}

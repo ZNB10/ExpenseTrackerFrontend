@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-//react router
+//react nav
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { setJWT, setLocalStorage, getLocalStorage, setUnAuthHandler, removeLocalStorage } from './Utilities';
 import NavBar from './Components/Common/NavBar/NavBar';
@@ -10,7 +10,7 @@ import PrivateRoute from './PrivateRoute';
 import {AnimatedSwitch} from 'react-router-transition';
 import { pageTransitions as transition, mapGlideStyles as mapStyles } from './Transition';
 
-
+//Components
 import Home from './Components/Pages/Public/Home/Home';
 import Login from './Components/Pages/Public/Login/Login';
 import Sigin from './Components/Pages/Public/Signin/Signing'

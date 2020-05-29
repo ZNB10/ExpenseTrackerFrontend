@@ -42,7 +42,6 @@ export default class Dashboard extends Component{
         const {expenseType, expenseDesc, expenseMoney} = this.state;
         paxios.post('/api/expenses/expenses', {expenseType, expenseDesc, expenseMoney})
         .then(({data})=>{
-            console.log("Esta es la data" + data);
             this.props.history.push('/main');
         }) 
         .catch((error)=>{

@@ -68,6 +68,7 @@ class App extends Component {
             <Route path="/" exact render={ (props)=>(<Home {...props} auth={this.state.auth} setUnAuth={this.setUnAuth}/>) } />
             <Route path="/login" render={ (props)=>(<Login {...props} auth={this.state.auth} setAuth={this.setAuth}/>)} />
             <Route path="/signin" component={Sigin}/>
+            <PrivateRoute path="/home"auth={this.state.auth} component={Home}/>
             <PrivateRoute path="/main" auth={this.state.auth} component={Dashboard}/>
             <PrivateRoute path="/backlog" auth={this.state.auth} component={Backlog}/>
             <PrivateRoute path="/detailadd" auth={this.state.auth} component={DetailAdd}/>

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import Button from  '../../../Common/Btns/Buttons';
 import './Home.css';
-import { IoIosLogOut } from 'react-icons/io';
+import { IoIosLogOut,IoIosFlame } from 'react-icons/io';
 import { paxios } from '../../../../Utilities';
+import { Link } from 'react-router-dom';
 
 export default class Home extends Component {
     constructor(){
@@ -23,6 +24,7 @@ export default class Home extends Component {
                 for (const key in this.state.expenses) {
                     console.log(this.state.expenses[key]);
                 }   
+                this.props.history.push('/home');
             }
         )
         .catch(
@@ -36,10 +38,15 @@ export default class Home extends Component {
         const items = this.state.expenses.map(
             (expens)=>{
                 return(
-                    <div key={expens._id}>
+                    <div className="thingItem" key={expens._id}>
                         <span>
                             Hi, you spend a lot on {expens.expenseDesc}&nbsp;
                             you spent {expens.expenseMoney}$</span>
+                        <span>
+                            <Link>
+                                <IoIosFlame size="2em"/>
+                            </Link>
+                        </span>
                     </div>
                 );
             }
@@ -52,7 +59,7 @@ export default class Home extends Component {
                     {(this.props.auth.logged) ? (<div className="half"><Button customClass="logout" onClick={(e) => { this.props.setUnAuth(false)}}><IoIosLogOut/></Button></div>):null}
                 </h1>
                 
-                <h2>{items}</h2>
+                {items}
                     
                 <div>&nbsp;</div>
             </div>

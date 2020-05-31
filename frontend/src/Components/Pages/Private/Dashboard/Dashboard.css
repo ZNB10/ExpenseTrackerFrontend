@@ -1,49 +1,49 @@
-.cardHolder{
-    display: flex;
-    flex-wrap: wrap;
+.cardHolder {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.card{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    border: 0.7px solid #72c02c;
-    padding: 1rem;
-    margin: 0.25rem;
-    margin-bottom: 0.5rem;
-    box-shadow: 1px 1px 2px #000;
-    width: calc(50% - 0.5rem);
-    min-height: 30vh;
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: 0.7px solid #72c02c;
+  padding: 1rem;
+  margin: 0.25rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 1px 1px 2px #000;
+  width: calc(50% - 0.5rem);
+  min-height: 30vh;
 }
 
-.big{
-    min-width: calc(50vh - 3rem);
-    width: 100%;
+.big {
+  min-width: calc(50vh - 3rem);
+  width: 100%;
 }
 
-.datePanel{
-    box-sizing: border-box;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0,25rem;
-    font-weight: bold;
+.datePanel {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0, 25rem;
+  font-weight: bold;
 }
 
-.circle{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    font-size: 2rem;
-    font-weight: bold;
-    border: solid 1px #72c02c;
-    padding: 1rem;
-    color: #72c02c;
-    box-shadow: 1px 1px 7px #000;
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+  border: solid 1px #72c02c;
+  padding: 1rem;
+  color: #72c02c;
+  box-shadow: 1px 1px 7px #000;
 }

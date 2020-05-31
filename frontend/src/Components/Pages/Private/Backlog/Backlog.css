@@ -1,22 +1,22 @@
-.backlog{
-    height: calc(100vh - 123px);
-    padding: 0px;
-    overflow: auto;
-    margin-top: -1rem;
+.backlog {
+  height: calc(100vh - 123px);
+  padding: 0px;
+  overflow: auto;
+  margin-top: -1rem;
 }
 .thingItem {
-    display: flex;
-    box-sizing: 1px;
-    padding: 1rem;
-    border-bottom: 1px solid #000;
-    min-height: 3rem;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  box-sizing: 1px;
+  padding: 1rem;
+  border-bottom: 1px solid #000;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: space-between;
 }
-.thingItem span{
-    padding-right: 1.5rem;
+.thingItem span {
+  padding-right: 1.5rem;
 }
 
-.center{
-    justify-content: center;
+.center {
+  justify-content: center;
 }

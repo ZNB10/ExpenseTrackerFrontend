@@ -21,10 +21,8 @@ export default class Home extends Component {
                 const {expenses} = data;
                 const loadedExpenses = this.state.expenses;
                 expenses.map((e)=>loadedExpenses.push(e));
-                for (const key in this.state.expenses) {
-                    console.log(this.state.expenses[key]);
-                }   
                 this.props.history.push('/home');
+
             }
         )
         .catch(
@@ -39,14 +37,19 @@ export default class Home extends Component {
             (expens)=>{
                 return(
                     <div className="thingItem" key={expens._id}>
-                        <span>
-                            Hi, you spend a lot on {expens.expenseDesc}&nbsp;
-                            you spent {expens.expenseMoney}$</span>
-                        <span>
-                            <Link>
-                                <IoIosFlame size="2em"/>
-                            </Link>
-                        </span>
+                        {(this.props.auth.logged) ?
+                            (<div>
+                                <span>
+                                    Hi, you spend a lot on {expens.expenseDesc}&nbsp;
+                                    you spent {expens.expenseMoney}$
+                                </span>
+                                <span>
+                                        <IoIosFlame size="2em"/>
+                                </span>
+                            </div>)
+                        :null}
+                        
+                        
                     </div>
                 );
             }
@@ -56,7 +59,13 @@ export default class Home extends Component {
                 <h1>
                     Expense Tracker
                     
-                    {(this.props.auth.logged) ? (<div className="half"><Button customClass="logout" onClick={(e) => { this.props.setUnAuth(false)}}><IoIosLogOut/></Button></div>):null}
+                    {(this.props.auth.logged) ? 
+                        (<div className="half">
+                            <Button customClass="primary" onClick={(e) => { this.props.setUnAuth(false)}}>
+                                <IoIosLogOut/>
+                            </Button>
+                        </div>)
+                    :null}
                 </h1>
                 
                 {items}

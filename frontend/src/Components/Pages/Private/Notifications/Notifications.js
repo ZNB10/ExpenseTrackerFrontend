@@ -48,16 +48,13 @@ export default class Home extends Component {
   crearTabla() {
     return this.state.expensess.map((expensess) => {
       return (
-        <tr class="tablaE" key={expensess._id}>
-          <td class="tablaE"> {expensess.expenseType} </td>{" "}
-          <td class="tablaE"> {expensess.expenseDesc} </td>{" "}
-          <td class="tablaE"> {expensess.expenseMoney} </td>{" "}
-          <td class="tablaE accion">
-            <Link>
-              {" "}
-              <IoIosFlame size="2em" />{" "}
-            </Link>{" "}
-          </td>{" "}
+        <tr class="tablaDataLink" key={expensess._id}>
+          <td class="tablaDataLink"> {expensess.expenseType} </td>
+          <td class="tablaDataLink"> {expensess.expenseDesc} </td>
+          <td class="tablaDataLink"> {expensess.expenseMoney}$ </td>
+          <td class="tablaDataLink action">
+            <Link></Link>
+          </td>
         </tr>
       );
     });
@@ -68,14 +65,14 @@ export default class Home extends Component {
       return (
         <div className="thingItem" key={expens._id}>
           <span>
-            Hi, you spend a lot on {expens.expenseDesc} & nbsp; you spent{" "}
-            {expens.expenseMoney}${" "}
-          </span>{" "}
+            Spend a lot on {expens.expenseDesc} &nbsp; &nbsp;
+            {expens.expenseMoney}$
+          </span>
           <span className="updateThing">
             <Link to="">
               <IoIosFlame size="2em" />
-            </Link>{" "}
-          </span>{" "}
+            </Link>
+          </span>
         </div>
       );
     });
@@ -83,23 +80,27 @@ export default class Home extends Component {
     if (!items.length)
       items.push(
         <div className="thingItem">
-          <span> You haven 't spent on anything yet :(</span>{" "}
+          <span> Haven't spent on anything yet :(</span>
           <Link to="/main">
             <IoIosSad size="2.5em" />
-          </Link>{" "}
+          </Link>
         </div>
       );
     return (
       <section>
-        <h1> Notifications </h1> {items} <span> Your top 3 expenses </span>{" "}
-        <table>
+        <h1> Notifications </h1>
+        {items}
+        <p class="tableHead"> Top 3 expenses </p>
+        <table className="table">
           <thead>
             <tr>
-              <td> Type </td> <td> Description </td> <td> Spending </td>{" "}
-            </tr>{" "}
-          </thead>{" "}
-          <tbody> {this.crearTabla()} </tbody>{" "}
-        </table>{" "}
+              <td class="tableData"> Type </td>
+              <td class="tableData"> Description </td>
+              <td class="tableData"> Spending </td>
+            </tr>
+          </thead>
+          <tbody> {this.crearTabla()} </tbody>
+        </table>
       </section>
     );
   }

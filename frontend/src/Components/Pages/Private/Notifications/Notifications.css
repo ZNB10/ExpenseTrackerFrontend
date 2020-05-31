@@ -1,0 +1,30 @@
+.table {
+  width: 95%;
+  margin-left: 25px;
+  margin-right: 10px;
+}
+
+.tableData {
+  font-size: 1.3em;
+  color: black;
+  border: none;
+}
+
+.tableDataLink {
+  width: 2%;
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 1em;
+  caption-side: bottom;
+  color: #000;
+  text-align: center;
+}
+
+.action {
+  background: #b3e6ff;
+}
+
+.tableHead {
+  text-align: center;
+  font-size: 1.3em;
+}

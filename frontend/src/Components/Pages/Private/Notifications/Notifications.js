@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { IoIosFlame } from 'react-icons/io';
+import { IoIosFlame,IoIosSad } from 'react-icons/io';
 import { paxios } from '../../../../Utilities';
 import {Link} from 'react-router-dom';
 
@@ -20,6 +20,7 @@ export default class Home extends Component{
                 const {expenses} = data;
                 const loadedExpenses = this.state.expenses;
                 expenses.map((e)=>loadedExpenses.push(e));
+                this.props.history.push('/notification');
 
             }
         )
@@ -47,12 +48,18 @@ export default class Home extends Component{
             }
 
         )
+        if(!items.length) items.push(
+            <div className="thingItem" >
+                <span>You haven't spent on anything yet :(</span>
+                <Link to="/main">
+                    <IoIosSad size="2.5em"/>
+                </Link>
+            </div>
+        );
         return(
             <section>
                 <h1>Notifications</h1>
-                <div className="home">
                     {items}
-                </div>
             </section>
         )
     }

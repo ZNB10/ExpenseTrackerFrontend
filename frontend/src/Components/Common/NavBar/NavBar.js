@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './NavBar.css';
-import { IoIosLogIn, IoIosHome, IoIosKey, IoIosList, IoMdAddCircle, IoMdNotifications } from 'react-icons/io';
+import { IoIosArrowDroprightCircle, IoIosHome, IoMdPaperPlane, IoIosList, IoMdAddCircle, IoMdNotifications } from 'react-icons/io';
 
 const NavItem = ({to, children, ...rest})=>{
     return(
@@ -14,8 +14,8 @@ export default ({auth, unSetAuth})=>{
     if(!auth.logged){
         return(
             <nav>
-              <NavItem to="/login"><IoIosLogIn/>&nbsp;Login</NavItem>
-              <NavItem to="/signin"><IoIosKey/>&nbsp;SignIn</NavItem>
+              <NavItem to="/login"><IoIosArrowDroprightCircle size="1.5em"/>&nbsp;Log In</NavItem>
+              <NavItem to="/signin"><IoMdPaperPlane size="1.5em"/>&nbsp;Sign In</NavItem>
             </nav>
           )
     }else{

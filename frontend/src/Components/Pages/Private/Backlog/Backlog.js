@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import './Backlog.css';
 import {paxios} from '../../../../Utilities';
 import InfiniteScroll from 'react-infinite-scroller';
-import {IoIosInformationCircleOutline, IoMdAddCircle, IoIosSync, IoIosExit} from 'react-icons/io'
+import {IoMdInformationCircle, IoMdAddCircle, IoIosSync, IoIosSad} from 'react-icons/io'
 import {Link} from 'react-router-dom';
 
 export default class Backlog extends Component{
@@ -53,7 +53,7 @@ export default class Backlog extends Component{
                 <span>{expens.expenseDesc}</span>
                 <span className="updateThing">
                     <Link to={`/detailupdate/${expens._id}`}>
-                        <IoIosInformationCircleOutline size="2em"/>
+                        <IoMdInformationCircle size="2em" background-color="white"/>
                     </Link>
                 </span>
             </div>);
@@ -62,9 +62,9 @@ export default class Backlog extends Component{
 
     if(!items.length) items.push(
         <div className="thingItem" key="pbBackLogAddOne">
-            <span>No expenses have been recorded</span>
+            <span>You don't have an expense list yet :(</span>
             <Link to="/main">
-                <IoIosExit size="2.5em"/>
+                <IoIosSad size="2.5em"/>
             </Link>
         </div>
     );

@@ -9,7 +9,7 @@ const NavItem = ({to, children, ...rest})=>{
     );
 };
 
-export default ({auth, unSetAuth})=>{
+export default ({auth, unSetAuth})=>{  
     console.log(auth);
     if(!auth.logged){
         return(

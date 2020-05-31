@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Button from  '../../../Common/Btns/Buttons';
-import './Home.css';
-import { IoIosLogOut, IoIosFlame } from 'react-icons/io';
+import { IoIosFlame } from 'react-icons/io';
 import { paxios } from '../../../../Utilities';
+import {Link} from 'react-router-dom';
+
 
 export default class Home extends Component{
     constructor(){

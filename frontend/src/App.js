@@ -18,6 +18,7 @@ import Dashboard from './Components/Pages/Private/Dashboard/Dashboard'
 import Backlog from './Components/Pages/Private/Backlog/Backlog';
 import DetailAdd from './Components/Pages/Private/Detail/DetailAdd';
 import DetailUpdate from './Components/Pages/Private/Detail/DetailUpdate';
+import Notifications from './Components/Pages/Private/Notifications/Notifications'
 
 
 class App extends Component {
@@ -72,6 +73,7 @@ class App extends Component {
             <PrivateRoute path="/backlog" auth={this.state.auth} component={Backlog}/>
             <PrivateRoute path="/detailadd" auth={this.state.auth} component={DetailAdd}/>
             <PrivateRoute path="/detailupdate/:id" auth={this.state.auth} component={DetailUpdate}/>
+            <PrivateRoute path="/notification" auth={this.state.auth} component={Notifications}/>
           </AnimatedSwitch>
           <NavBar auth={this.state.auth}/>
         </section>

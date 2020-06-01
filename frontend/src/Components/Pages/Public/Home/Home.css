@@ -14,7 +14,6 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  text-align: center !important;
   justify-content: center;
   align-self: center;
   width: 100%;
@@ -22,4 +21,23 @@
 
 .home .half {
   width: 60%;
+}
+
+.section-title {
+  text-align: initial;
+  line-height: 167%;
+  font-family: "Montserrat", sans-serif;
+  padding: 0.1em 0.2em;
+  font-size: 17px;
+  padding: 1em;
+}
+
+.section-info {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #777;
+  line-height: 1.6;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.004em;
+  padding: 1em;
 }

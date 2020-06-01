@@ -36,7 +36,7 @@ export default class Dashboard extends Component {
         expenseMoney,
       })
       .then(({ data }) => {
-        this.props.history.push("/main");
+        this.props.history.push("/notifications");
       })
       .catch((error) => {
         this.setState({ error: "Error. No se pudo registrar el nuevo gasto" });

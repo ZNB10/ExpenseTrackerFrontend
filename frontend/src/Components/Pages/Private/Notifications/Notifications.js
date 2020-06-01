@@ -31,19 +31,6 @@ export default class Home extends Component {
         console.log(err);
       });
 
-    const uri2 = `/api/expenses/expenses/query3`;
-    paxios
-      .get(uri2)
-      .then(({ data }) => {
-        const { expensess } = data;
-
-        const loadedExpenses2 = this.state.expensess;
-        expensess.map((i) => loadedExpenses2.push(i));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
     const uri3 = "/api/expenses/expenses/query4";
     paxios
       .get(uri3)
@@ -58,6 +45,20 @@ export default class Home extends Component {
       .catch((err) => {
         console.log(err);
       });
+
+    const uri2 = `/api/expenses/expenses/query3`;
+    paxios
+      .get(uri2)
+      .then(({ data }) => {
+        const { expensess } = data;
+
+        const loadedExpenses2 = this.state.expensess;
+        expensess.map((i) => loadedExpenses2.push(i));
+        this.props.history.push("/notification");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   crearTabla() {
@@ -66,9 +67,9 @@ export default class Home extends Component {
         <tr class="tablaDataLink" key={expensess._id}>
           <td class="tablaDataLink"> {expensess.expenseType} </td>
           <td class="tablaDataLink"> {expensess.expenseDesc} </td>
-          <td class="tablaDataLink"> {expensess.expenseMoney}$ </td>
+          <td class="tablaDataLink"> ${expensess.expenseMoney} </td>
           <td class="tablaDataLink action">
-            <Link></Link>
+            <Link to=""></Link>
           </td>
         </tr>
       );
@@ -80,8 +81,8 @@ export default class Home extends Component {
       return (
         <div className="thingItem" key={expens._id}>
           <span>
-            Spend a lot on {expens.expenseDesc} &nbsp; &nbsp;
-            {expens.expenseMoney}$
+            Spend a lot on "{expens.expenseDesc}" and spent "$
+            {expens.expenseMoney}"
           </span>
           <span className="updateThing">
             <Link to="">
@@ -96,8 +97,8 @@ export default class Home extends Component {
       return (
         <div className="thingItem" key={expenss._id}>
           <span>
-            Last expense was {expenss.expenseDesc} and spent
-            {expenss.expenseMoney}$
+            Last expense was "{expenss.expenseDesc}" and spent "$
+            {expenss.expenseMoney}"
           </span>
           <span className="updateThing">
             <Link to="">
@@ -123,6 +124,7 @@ export default class Home extends Component {
       <section>
         <h1> Notifications </h1>
         {items}
+        {items4}
         <p class="tableHead"> Top 3 expenses </p>
         <table className="table">
           <thead>
@@ -132,10 +134,8 @@ export default class Home extends Component {
               <td class="tableData"> Spending </td>
             </tr>
           </thead>
-          <tbody> {this.crearTabla()} </tbody>
+          <tbody>{this.crearTabla()}</tbody>
         </table>
-        <div className="thingItem"></div>
-        {items4}
       </section>
     );
   }

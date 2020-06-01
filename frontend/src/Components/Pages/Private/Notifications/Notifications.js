@@ -34,12 +34,26 @@ export default class Home extends Component {
       .get(uri2)
       .then(({ data }) => {
         const { expensess } = data;
-        for (const key in expensess) {
-          console.log(expensess);
-        }
+
         const loadedExpenses2 = this.state.expensess;
-        expensess.map((ee) => loadedExpenses2.push(ee));
+        expensess.map((i) => loadedExpenses2.push(i));
         this.props.history.push("/notification");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    const uri3 = "/api/expenses/expenses/query4";
+    paxios
+      .get(uri3)
+      .then(({ data }) => {
+        const { expensesss } = data;
+        for (const key in expensesss) {
+          console.log(expensesss);
+        }
+        const loadedExpenses3 = this.state.expensesss;
+        expensesss.map((o) => loadedExpenses3.push(o));
+        this.props.history.push("./notificacion");
       })
       .catch((err) => {
         console.log(err);
@@ -78,7 +92,7 @@ export default class Home extends Component {
       );
     });
 
-    if (!items.length)
+    if (!items.length) {
       items.push(
         <div className="thingItem">
           <span> Haven't spent on anything yet :(</span>
@@ -87,6 +101,8 @@ export default class Home extends Component {
           </Link>
         </div>
       );
+    }
+
     return (
       <section>
         <h1> Notifications </h1>
@@ -102,6 +118,7 @@ export default class Home extends Component {
           </thead>
           <tbody> {this.crearTabla()} </tbody>
         </table>
+        <div className="thingItem"></div>
       </section>
     );
   }

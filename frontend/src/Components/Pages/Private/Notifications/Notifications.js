@@ -10,6 +10,7 @@ export default class Home extends Component {
     this.state = {
       expenses: [],
       expensess: [],
+      expensesss: [],
     };
   }
 
@@ -22,6 +23,7 @@ export default class Home extends Component {
         for (const key in data) {
           console.log(data);
         }
+
         const loadedExpenses = this.state.expenses;
         expenses.map((e) => loadedExpenses.push(e));
       })
@@ -37,7 +39,6 @@ export default class Home extends Component {
 
         const loadedExpenses2 = this.state.expensess;
         expensess.map((i) => loadedExpenses2.push(i));
-        this.props.history.push("/notification");
       })
       .catch((err) => {
         console.log(err);
@@ -53,7 +54,6 @@ export default class Home extends Component {
         }
         const loadedExpenses3 = this.state.expensesss;
         expensesss.map((o) => loadedExpenses3.push(o));
-        this.props.history.push("./notificacion");
       })
       .catch((err) => {
         console.log(err);
@@ -85,7 +85,23 @@ export default class Home extends Component {
           </span>
           <span className="updateThing">
             <Link to="">
-              <IoIosFlame size="2em" />
+              <IoIosFlame size="1.6em" />
+            </Link>
+          </span>
+        </div>
+      );
+    });
+
+    const items4 = this.state.expensesss.map((expenss) => {
+      return (
+        <div className="thingItem" key={expenss._id}>
+          <span>
+            Last expense was {expenss.expenseDesc} and spent
+            {expenss.expenseMoney}$
+          </span>
+          <span className="updateThing">
+            <Link to="">
+              <IoIosFlame size="1.6em" />
             </Link>
           </span>
         </div>
@@ -119,6 +135,7 @@ export default class Home extends Component {
           <tbody> {this.crearTabla()} </tbody>
         </table>
         <div className="thingItem"></div>
+        {items4}
       </section>
     );
   }
